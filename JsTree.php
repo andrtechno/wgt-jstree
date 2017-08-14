@@ -1,10 +1,13 @@
 <?php
 
 /**
- * @copyright Copyright &copy; Thiago Talma, thiagomt.com, 2014
- * @package yii2-jstree
- * @version 1.0.0
+ *
+ * JsTree widget
+ *
+ * @author CORNER CMS <dev@corner-cms.com>
+ * @link http://www.corner-cms.com/
  */
+
 
 namespace panix\jstree;
 

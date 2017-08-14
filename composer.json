@@ -1,7 +1,7 @@
 {
     "name": "panix/wgt-jstree",
-    "description": "Widget for Yii Framework 2.0 to use JsTree",
-    "keywords": ["yii2", "extension", "widget", "form", "jstree"],
+    "description": "Widget JsTree",
+    "keywords": ["corner-cms", "extension", "widget", "form", "jstree"],
     "homepage": "https://github.com/panix/wgt-jstree",
     "type": "extension",
     "license": "BSD 3-Clause",
