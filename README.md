@@ -2,7 +2,7 @@ wgt-jstree
 ===========
 Widget for Yii Framework 2.0 to use [JsTree](http://www.jstree.com)
 
-[![Latest Stable Version](https://poser.pugx.org/panix/wgt-jstree/v/stable)] [![Total Downloads](https://poser.pugx.org/panix/wgt-jstree/downloads)](https://packagist.org/packages/panix/wgt-jstree) [![Monthly Downloads](https://poser.pugx.org/panix/wgt-jstree/d/monthly)](https://packagist.org/packages/panix/wgt-jstree) [![Daily Downloads](https://poser.pugx.org/panix/wgt-jstree/d/daily)](https://packagist.org/packages/panix/wgt-jstree) [![Latest Unstable Version](https://poser.pugx.org/panix/wgt-jstree/v/unstable)](https://packagist.org/packages/panix/wgt-jstree) [![License](https://poser.pugx.org/panix/wgt-jstree/license)](https://packagist.org/packages/panix/wgt-jstree)
+[![Latest Stable Version](https://poser.pugx.org/panix/wgt-jstree/v/stable)](https://packagist.org/packages/panix/wgt-jstree) [![Total Downloads](https://poser.pugx.org/panix/wgt-jstree/downloads)](https://packagist.org/packages/panix/wgt-jstree) [![Monthly Downloads](https://poser.pugx.org/panix/wgt-jstree/d/monthly)](https://packagist.org/packages/panix/wgt-jstree) [![Daily Downloads](https://poser.pugx.org/panix/wgt-jstree/d/daily)](https://packagist.org/packages/panix/wgt-jstree) [![Latest Unstable Version](https://poser.pugx.org/panix/wgt-jstree/v/unstable)](https://packagist.org/packages/panix/wgt-jstree) [![License](https://poser.pugx.org/panix/wgt-jstree/license)](https://packagist.org/packages/panix/wgt-jstree)
 
 
 Installation
