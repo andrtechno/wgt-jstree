@@ -2,8 +2,6 @@ wgt-jstree
 ===========
 Widget for Yii Framework 2.0 to use [JsTree](http://www.jstree.com)
 
-[![Latest Stable Version](https://poser.pugx.org/thiagotalma/yii2-jstree/v/stable)](https://packagist.org/packages/thiagotalma/yii2-jstree) [![Total Downloads](https://poser.pugx.org/thiagotalma/yii2-jstree/downloads)](https://packagist.org/packages/thiagotalma/yii2-jstree) [![Monthly Downloads](https://poser.pugx.org/thiagotalma/yii2-jstree/d/monthly)](https://packagist.org/packages/thiagotalma/yii2-jstree) [![Daily Downloads](https://poser.pugx.org/thiagotalma/yii2-jstree/d/daily)](https://packagist.org/packages/thiagotalma/yii2-jstree) [![Latest Unstable Version](https://poser.pugx.org/thiagotalma/yii2-jstree/v/unstable)](https://packagist.org/packages/thiagotalma/yii2-jstree) [![License](https://poser.pugx.org/thiagotalma/yii2-jstree/license)](https://packagist.org/packages/thiagotalma/yii2-jstree)
-
 Installation
 ------------
 
@@ -12,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist panix/wgt-jstree "~1.0.0"
+php composer.phar require --prefer-dist panix/wgt-jstree "*"
 ```
 
 or add
 
 ```
-"panix/wgt-jstree": "~1.0.0"
+"panix/wgt-jstree": "*"
 ```
 
 to the require section of your `composer.json` file.
