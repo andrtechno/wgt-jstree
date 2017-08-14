@@ -1,0 +1,24 @@
+{
+    "name": "panix/wgt-jstree",
+    "description": "Widget for Yii Framework 2.0 to use JsTree",
+    "keywords": ["yii2", "extension", "widget", "form", "jstree"],
+    "homepage": "https://github.com/panix/wgt-jstree",
+    "type": "yii2-extension",
+    "license": "BSD 3-Clause",
+    "authors": [
+        {
+            "name": "Andrew Semenov",
+            "email": "dev@corner-cms.com",
+            "homepage": "http://www.corner-cms.com/"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "vakata/jstree": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "panix\\jstree\\": ""
+        }
+    }
+}
