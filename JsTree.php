@@ -95,24 +95,6 @@ class JsTree extends InputWidget {
 
         $this->options['id'] = 'jsTree_' . $this->options['id'];
         echo Html::tag('div', '', $this->options);
-
-
-    }
-
-    public function run123() {
-        echo Html::beginTag('div', array(
-            'id' => $this->id,
-        ));
-
-        echo Html::endTag('div');
-
-        //$this->options['core']['data'] = $this->createHtmlTree($this->data);
-        // $options = CJavaScript::encode($this->options);
-        // print_r($this->options['core']['data']);
-        // $this->cs->registerScript('JsTreeScript', "
-        //		$('#{$this->id}').jstree({$options});
-//
-        // ");
     }
 
     /**
@@ -121,7 +103,7 @@ class JsTree extends InputWidget {
     public function registerAssets() {
         $view = $this->getView();
         JsTreeAsset::register($view);
-        //   $this->data = $this->createHtmlTree($this->data);
+
         $config = [
             'core' => array_merge(['data' => $this->createHtmlTree($this->data)], $this->core),
             'checkbox' => $this->checkbox,
@@ -153,7 +135,7 @@ SCRIPT;
     }
 
     private function createHtmlTree($data) {
-        $result = array();
+        $result = [];
         foreach ($data as $node) {
             /* $result['id']='node_' . $node['id'];
               $result['text']=Html::encode($node->name);
@@ -171,22 +153,20 @@ SCRIPT;
             }
             //  $visible = (isset($node->visible)) ? $node->visible : true;
             // if ($visible) {
-            $result[] = array(
+            $result[] = [
                 'id' => 'node_' . $node['id'],
-                'text' => Html::encode($node->name),
-              //  'icon' => $icon,
+                'text' => Html::encode($node->name) . ' ' . $node['id'],
+                'icon' => $icon,
                 'state' => array(
                     'opened' => ($node->id == 1) ? true : false,
-                    //'switch' => $node['switch'],
+                //'switch' => $node['switch'],
                 //'selected' => (in_array($node->id, $this->selected)) ? true : false
                 ),
                 'children' => $this->createHtmlTree($node['children'])
-            );
+            ];
             //  }
         }
         return $result;
     }
-
-
 
 }
