@@ -8,7 +8,7 @@
  * @link http://www.corner-cms.com/
  */
 
-namespace panix\jstree;
+namespace panix\ext\jstree;
 
 use yii\web\AssetBundle;
 

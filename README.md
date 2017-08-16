@@ -31,7 +31,7 @@ Usage
 Once the extension is installed, simply use it in your code by :
 
 ```php
-<?=  \panix\jstree\JsTree::widget([
+<?=  \panix\ext\jstree\JsTree::widget([
     'attribute' => 'attribute_name',
     'model' => $model,
     'core' => [
@@ -46,7 +46,7 @@ Once the extension is installed, simply use it in your code by :
 Usage without a model (you must specify the "name" attribute) :
 
 ```php
-<?=  \panix\jstree\JsTree::widget([
+<?=  \panix\ext\jstree\JsTree::widget([
     'name' => 'js_tree',
     'core' => [
         'data' => $data

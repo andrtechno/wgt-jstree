@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "panix\\jstree\\": ""
+            "panix\\ext\\jstree\\": ""
         }
     }
 }
