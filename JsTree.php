@@ -15,6 +15,7 @@ use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\widgets\InputWidget;
 
+
 class JsTree extends InputWidget {
 
     /**
@@ -22,6 +23,7 @@ class JsTree extends InputWidget {
      * If left as false the HTML inside the jstree container element is used to populate the tree (that should be an unordered list with list items).
      */
     public $data = [];
+
 
     /**
      * @var array Stores all defaults for the core
@@ -90,7 +92,7 @@ class JsTree extends InputWidget {
             echo Html::hiddenInput($this->options['id'], null, [ 'id' => $this->options['id']]);
         } else {
             echo Html::activeTextInput($this->model, $this->attribute, ['class' => 'hidden', 'value' => $this->value]);
-            Html::addCssClass($this->options, "js_tree_{$this->attribute}");
+              Html::addCssClass($this->options, "js_tree_{$this->attribute}");
         }
 
         $this->options['id'] = 'jsTree_' . $this->options['id'];
@@ -104,8 +106,10 @@ class JsTree extends InputWidget {
         $view = $this->getView();
         JsTreeAsset::register($view);
 
+
         $config = [
-            'core' => array_merge(['data' => $this->createHtmlTree($this->data)], $this->core),
+            'core' => array_merge(['data' => $this->createDataTree($this->data)], $this->core),
+
             'checkbox' => $this->checkbox,
             'contextmenu' => $this->contextmenu,
             'dnd' => $this->dnd,
@@ -115,56 +119,42 @@ class JsTree extends InputWidget {
             'plugins' => $this->plugins,
             'types' => $this->types
         ];
+
+        //$defaults = Json::encode(array_merge($config,['contextmenu'=>'customMenu()']));
         $defaults = Json::encode($config);
 
         $inputId = (!$this->hasModel()) ? $this->options['id'] : Html::getInputId($this->model, $this->attribute);
 
-        $js = <<<SCRIPT
-;(function($, window, document, undefined) {
-    $('#jsTree_{$this->options['id']}')
-        .bind("loaded.jstree", function (event, data) {
-                $("#{$inputId}").val(JSON.stringify(data.selected));
-            })
-        .bind("changed.jstree", function(e, data, x){
-                $("#{$inputId}").val(JSON.stringify(data.selected));
-        })
-        .jstree({$defaults});
-})(window.jQuery, window, document);
-SCRIPT;
-        $view->registerJs($js);
+
+
+
+        $view->registerJs("$('#jsTree_{$this->options['id']}').jstree({$defaults})");
+
     }
 
-    private function createHtmlTree($data) {
-        $result = [];
-        foreach ($data as $node) {
-            /* $result['id']='node_' . $node['id'];
-              $result['text']=Html::encode($node->name);
-              $result['icon']=($node['switch'])?'icon-eye':'icon-eye-close';
-              $result['state']=array(
-              'opened' => ($node->id == 1) ? true : false,
-              'switch'=>$node['switch']
-              );
-              $result['children']=$this->createHtmlTree($node['children']); */
 
-            if (Yii::$app->controller->id == 'admin/category' || Yii::$app->controller->id == 'admin/default') {
+    
+
+
+    private function createDataTree($data) {
+        $result = [];
+
+        foreach ($data as $node) {
+
+            if (basename(get_class($this->view->context)) == 'CategoryController') {
                 $icon = ($node['switch']) ? 'icon-eye' : 'icon-eye-close';
             } else {
                 $icon = '';
             }
-            //  $visible = (isset($node->visible)) ? $node->visible : true;
-            // if ($visible) {
             $result[] = [
-                'id' => 'node_' . $node['id'],
-                'text' => Html::encode($node->name) . ' ' . $node['id'],
+                'id' => 'node_' . $node->id,
+                'text' => Html::encode($node->name) . ' ' . $node->id,
                 'icon' => $icon,
-                'state' => array(
+                'state' => [
                     'opened' => ($node->id == 1) ? true : false,
-                //'switch' => $node['switch'],
-                //'selected' => (in_array($node->id, $this->selected)) ? true : false
-                ),
-                'children' => $this->createHtmlTree($node['children'])
+                ],
+                'children' => $this->createDataTree($node['children'])
             ];
-            //  }
         }
         return $result;
     }
