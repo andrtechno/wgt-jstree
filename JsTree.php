@@ -23,7 +23,7 @@ class JsTree extends InputWidget {
      * If left as false the HTML inside the jstree container element is used to populate the tree (that should be an unordered list with list items).
      */
     public $data = [];
-
+    public $allOpen = false;
 
     /**
      * @var array Stores all defaults for the core
@@ -78,7 +78,9 @@ class JsTree extends InputWidget {
      */
     public $types = [
         '#' => [],
-        'default' => [],
+        'default' => [
+                "icon" =>"icon-folder-open",
+        ],
     ];
 
     /**
@@ -150,8 +152,9 @@ class JsTree extends InputWidget {
                 'id' => 'node_' . $node->id,
                 'text' => Html::encode($node->name) . ' ' . $node->id,
                 'icon' => $icon,
+                'data'=>['is_switch'=>$node->switch],
                 'state' => [
-                    'opened' => ($node->id == 1) ? true : false,
+                    'opened' => ($this->allOpen || $node->id == 1) ? true : false,
                 ],
                 'children' => $this->createDataTree($node['children'])
             ];
