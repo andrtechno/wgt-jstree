@@ -3,7 +3,7 @@
     "description": "Widget JsTree",
     "keywords": ["corner-cms", "extension", "widget", "form", "jstree"],
     "homepage": "https://github.com/andrtechno/wgt-jstree",
-    "type": "yii2-extension",
+    "type": "extension",
     "license": "BSD 3-Clause",
     "authors": [
         {
