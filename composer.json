@@ -4,7 +4,7 @@
     "keywords": ["corner-cms", "extension", "widget", "form", "jstree"],
     "homepage": "https://github.com/andrtechno/wgt-jstree",
     "type": "extension",
-    "license": "BSD 3-Clause",
+    "license": "MIT",
     "authors": [
         {
             "name": "CORNER CMS",
