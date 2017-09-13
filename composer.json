@@ -13,8 +13,7 @@
         }
     ],
     "require": {
-        "panix/engine": "*",
-        "vakata/jstree": "*"
+        "panix/engine": "*"
     },
     "autoload": {
         "psr-4": {

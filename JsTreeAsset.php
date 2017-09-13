@@ -20,7 +20,7 @@ use yii\web\AssetBundle;
  */
 class JsTreeAsset extends AssetBundle {
 
-    public $sourcePath = '@vendor/vakata/jstree/dist';
+    public $sourcePath = '@vendor/panix/wgt-jstree/assets';
 
     /**
      * @inheritdoc
