@@ -12,16 +12,12 @@ namespace panix\ext\jstree;
 
 use yii\web\AssetBundle;
 
-/**
- * Asset bundle for JsTree Widget
- *
- * @author Thiago Talma <thiago@thiagomt.com>
- * @since 1.0
- */
 class JsTreeAsset extends AssetBundle {
 
     public $sourcePath = '@vendor/panix/wgt-jstree/assets';
-
+    //public $jsOptions = array(
+    //    'position' => \yii\web\View::POS_READY
+    //);
     /**
      * @inheritdoc
      */
