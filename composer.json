@@ -1,15 +1,15 @@
 {
     "name": "panix/wgt-jstree",
     "description": "Widget JsTree",
-    "keywords": ["corner-cms", "extension", "widget", "form", "jstree"],
+    "keywords": ["pixelion-cms", "extension", "widget", "form", "jstree"],
     "homepage": "https://github.com/andrtechno/wgt-jstree",
     "type": "extension",
     "license": "MIT",
     "authors": [
         {
-            "name": "CORNER CMS",
-            "email": "dev@corner-cms.com",
-            "homepage": "http://www.corner-cms.com/"
+            "name": "PIXELION CMS",
+            "email": "dev@pixelion.com.ua",
+            "homepage": "https://pixelion.com.ua"
         }
     ],
     "require": {
