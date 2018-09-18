@@ -1,4 +1,4 @@
-wgt-jstree 3.3.4 _
+wgt-jstree 3.3.4
 ===========
 Widget for Yii Framework 2.0 to use [JsTree](http://www.jstree.com)
 
