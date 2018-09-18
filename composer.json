@@ -18,6 +18,7 @@
     },
     "ignore": {
         "components/jquery": "1.9.1",
+        "robloach/component-installer":"*"
     },
     "autoload": {
         "psr-4": {
