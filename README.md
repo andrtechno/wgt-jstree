@@ -1,4 +1,4 @@
-wgt-jstree
+wgt-jstree 3.3.4 _
 ===========
 Widget for Yii Framework 2.0 to use [JsTree](http://www.jstree.com)
 
@@ -31,28 +31,28 @@ Usage
 Once the extension is installed, simply use it in your code by :
 
 ```php
-<?=  \panix\ext\jstree\JsTree::widget([
+<?= \panix\ext\jstree\JsTree::widget([
     'attribute' => 'attribute_name',
     'model' => $model,
     'core' => [
         'data' => $data
-        ...
+        //...
     ],
     'plugins' => ['types', 'dnd', 'contextmenu', 'wholerow', 'state'],
-    ...
+    //...
 ]); ?>
 ```
 
 Usage without a model (you must specify the "name" attribute) :
 
 ```php
-<?=  \panix\ext\jstree\JsTree::widget([
+<?= \panix\ext\jstree\JsTree::widget([
     'name' => 'js_tree',
     'core' => [
         'data' => $data
-        ...
+        //...
     ],
     'plugins' => ['types', 'dnd', 'contextmenu', 'wholerow', 'state'],
-    ...
+    //...
 ]); ?>
 ```
