@@ -16,6 +16,9 @@
         "panix/engine": "*",
         "vakata/jstree": "~3.0.0"
     },
+    "ignore": {
+        "components/jquery": "1.9.1",
+    },
     "autoload": {
         "psr-4": {
             "panix\\ext\\jstree\\": ""
