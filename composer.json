@@ -14,7 +14,7 @@
     ],
     "require": {
         "panix/engine": "*",
-        "vakata/jstree": "~3.0.0"
+        "vakata/jstree": ">=3"
     },
     "replace": {
         "components/jquery": "1.9.1",
