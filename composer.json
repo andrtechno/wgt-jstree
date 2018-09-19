@@ -16,7 +16,7 @@
         "panix/engine": "*",
         "vakata/jstree": "~3.0.0"
     },
-    "ignore": {
+    "replace": {
         "components/jquery": "1.9.1",
         "robloach/component-installer":"*"
     },
