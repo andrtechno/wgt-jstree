@@ -144,7 +144,7 @@ class JsTree extends InputWidget {
         foreach ($data as $node) {
 
             if (basename(get_class($this->view->context)) == 'CategoryController') {
-                $icon = ($node['switch']) ? 'icon-eye' : 'icon-eye-close';
+                $icon = ($node->switch) ? 'icon-eye' : 'icon-eye-close';
             } else {
                 $icon = '';
             }
