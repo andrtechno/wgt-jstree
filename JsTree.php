@@ -156,7 +156,7 @@ class JsTree extends InputWidget {
                 'state' => [
                     'opened' => ($this->allOpen || $node->id == 1) ? true : false,
                 ],
-                'children' => $this->createDataTree($node['children'])
+                'children' => $this->createDataTree($node->children)
             ];
         }
         return $result;
