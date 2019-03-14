@@ -13,11 +13,10 @@
         }
     ],
     "require": {
-        "panix/engine": "*",
         "vakata/jstree": ">=3"
     },
     "replace": {
-        "components/jquery": "1.9.1",
+        "components/jquery": "1.12.1",
         "robloach/component-installer":"*"
     },
     "autoload": {
