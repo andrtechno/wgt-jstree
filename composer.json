@@ -3,7 +3,7 @@
     "description": "Widget JsTree",
     "keywords": ["pixelion-cms", "extension", "widget", "form", "jstree"],
     "homepage": "https://github.com/andrtechno/wgt-jstree",
-    "type": "extension",
+    "type": "yii2-extension",
     "license": "MIT",
     "authors": [
         {
