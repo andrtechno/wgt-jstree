@@ -13,8 +13,7 @@
         }
     ],
     "require": {
-        "vakata/jstree": ">=3",
-        "bower/jstree": ">=3"
+        "vakata/jstree": ">=3"
     },
     "replace": {
         "components/jquery": "1.12.1",
