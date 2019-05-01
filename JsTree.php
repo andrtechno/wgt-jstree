@@ -112,29 +112,22 @@ class JsTree extends InputWidget
         $view = $this->getView();
         JsTreeAsset::register($view);
 
-
-        /*$config = [
-            'core' => array_merge(['data' => $this->createDataTree($this->data)], $this->core),
-
-            'checkbox' => $this->checkbox,
-            'contextmenu' => $this->contextmenu,
-            //'dnd' => $this->dnd,
-            'search' => $this->search,
-            'sort' => $this->sort,
-            'state' => $this->state,
-            'plugins' => $this->plugins,
-            'types' => $this->types
-        ];*/
-
         $config['core'] = array_merge(['data' => $this->createDataTree($this->data)], $this->core);
         $config['checkbox'] = $this->checkbox;
         $config['contextmenu'] = $this->contextmenu;
+
         if ($this->dnd)
             $config['dnd'] = $this->dnd;
-        $config['search'] = $this->search;
-        $config['sort'] = $this->sort;
 
-        $config['state'] = $this->state;
+        if ($this->search)
+            $config['search'] = $this->search;
+
+        if ($this->sort)
+            $config['sort'] = $this->sort;
+
+        if ($this->state)
+            $config['state'] = $this->state;
+
         $config['plugins'] = $this->plugins;
         $config['types'] = $this->types;
 
