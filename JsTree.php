@@ -16,7 +16,8 @@ use yii\helpers\Json;
 use yii\widgets\InputWidget;
 
 
-class JsTree extends InputWidget {
+class JsTree extends InputWidget
+{
 
     /**
      * @var array Data configuration.
@@ -40,7 +41,8 @@ class JsTree extends InputWidget {
      */
     public $checkbox = [
         'three_state' => true,
-        'keep_selected_style' => false];
+        'keep_selected_style' => false
+    ];
 
     /**
      * @var array Stores all defaults for the contextmenu plugin
@@ -79,22 +81,23 @@ class JsTree extends InputWidget {
     public $types = [
         '#' => [],
         'default' => [
-                "icon" =>"icon-folder-open",
+            "icon" => "icon-folder-open",
         ],
     ];
 
     /**
      * @inheritdoc
      */
-    public function init() {
+    public function init()
+    {
         parent::init();
         $this->registerAssets();
 
         if (!$this->hasModel()) {
-            echo Html::hiddenInput($this->options['id'], null, [ 'id' => $this->options['id']]);
+            echo Html::hiddenInput($this->options['id'], null, ['id' => $this->options['id']]);
         } else {
             echo Html::activeTextInput($this->model, $this->attribute, ['class' => 'hidden', 'value' => $this->value]);
-              Html::addCssClass($this->options, "js_tree_{$this->attribute}");
+            Html::addCssClass($this->options, "js_tree_{$this->attribute}");
         }
 
         $this->options['id'] = 'jsTree_' . $this->options['id'];
@@ -104,23 +107,37 @@ class JsTree extends InputWidget {
     /**
      * Registers the needed assets
      */
-    public function registerAssets() {
+    public function registerAssets()
+    {
         $view = $this->getView();
         JsTreeAsset::register($view);
 
 
-        $config = [
+        /*$config = [
             'core' => array_merge(['data' => $this->createDataTree($this->data)], $this->core),
 
             'checkbox' => $this->checkbox,
             'contextmenu' => $this->contextmenu,
-            'dnd' => $this->dnd,
+            //'dnd' => $this->dnd,
             'search' => $this->search,
             'sort' => $this->sort,
             'state' => $this->state,
             'plugins' => $this->plugins,
             'types' => $this->types
-        ];
+        ];*/
+
+        $config['core'] = array_merge(['data' => $this->createDataTree($this->data)], $this->core);
+        $config['checkbox'] = $this->checkbox;
+        $config['contextmenu'] = $this->contextmenu;
+        if ($this->dnd)
+            $config['dnd'] = $this->dnd;
+        $config['search'] = $this->search;
+        $config['sort'] = $this->sort;
+
+        $config['state'] = $this->state;
+        $config['plugins'] = $this->plugins;
+        $config['types'] = $this->types;
+
 
         //$defaults = Json::encode(array_merge($config,['contextmenu'=>'customMenu()']));
         $defaults = Json::encode($config);
@@ -128,17 +145,13 @@ class JsTree extends InputWidget {
         $inputId = (!$this->hasModel()) ? $this->options['id'] : Html::getInputId($this->model, $this->attribute);
 
 
-
-
         $view->registerJs("$('#jsTree_{$this->options['id']}').jstree({$defaults})");
 
     }
 
 
-    
-
-
-    private function createDataTree($data) {
+    private function createDataTree($data)
+    {
         $result = [];
 
         foreach ($data as $node) {
@@ -152,12 +165,24 @@ class JsTree extends InputWidget {
                 'id' => 'node_' . $node->id,
                 'text' => Html::encode($node->name) . ' ' . $node->id,
                 'icon' => $icon,
-                'data'=>['is_switch'=>$node->switch],
+                'data' => ['is_switch' => $node->switch],
                 'state' => [
                     'opened' => ($this->allOpen || $node->id == 1) ? true : false,
                 ],
                 'children' => $this->createDataTree($node->children)
             ];
+
+
+            /* $result['id'] = 'node_' . $node->id;
+             $result['text'] = Html::encode($node->name) . ' ' . $node->id;
+             $result['icon'] = $icon;
+             $result['data'] = ['is_switch' => $node->switch];
+             $result['state'] = [
+                 'opened' => ($this->allOpen || $node->id == 1) ? true : false,
+             ];
+             if ($node->children) {
+                 $result['children'] = $this->createDataTree($node->children);
+             }*/
         }
         return $result;
     }
