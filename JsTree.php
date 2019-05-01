@@ -79,7 +79,7 @@ class JsTree extends InputWidget
      * @var array Stores all defaults for the types plugin
      */
     public $types = [
-        '#' => [],
+        // '#' => [],
         'default' => [
             "icon" => "icon-folder-open",
         ],
@@ -146,7 +146,6 @@ class JsTree extends InputWidget
     private function createDataTree($data)
     {
         $result = [];
-
         foreach ($data as $node) {
 
             if (basename(get_class($this->view->context)) == 'CategoryController') {
