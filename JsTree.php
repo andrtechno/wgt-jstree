@@ -13,6 +13,7 @@ namespace panix\ext\jstree;
 use Yii;
 use yii\helpers\Html;
 use yii\helpers\Json;
+use yii\helpers\VarDumper;
 use yii\widgets\InputWidget;
 
 
@@ -111,7 +112,6 @@ class JsTree extends InputWidget
     {
         $view = $this->getView();
         JsTreeAsset::register($view);
-
         $config['core'] = array_merge(['data' => $this->createDataTree($this->data)], $this->core);
         $config['checkbox'] = $this->checkbox;
         $config['contextmenu'] = $this->contextmenu;
@@ -146,36 +146,25 @@ class JsTree extends InputWidget
     private function createDataTree($data)
     {
         $result = [];
-        foreach ($data as $node) {
+        foreach ($data as $key => $node) {
 
             if (basename(get_class($this->view->context)) == 'CategoryController') {
-                $icon = ($node->switch) ? 'icon-eye' : 'icon-eye-close';
+                $icon = ($node['switch']) ? 'icon-eye' : 'icon-eye-close';
             } else {
                 $icon = '';
             }
-            $result[] = [
-                'id' => 'node_' . $node->id,
-                'text' => Html::encode($node->name),
-                'icon' => $icon,
-                'data' => ['is_switch' => $node->switch],
-                'state' => [
-                    'opened' => ($this->allOpen || $node->id == 1) ? true : false,
-                ],
-                'children' => $this->createDataTree($node->children)
+            $result[$key]['id'] = 'node_' . $node['key'];
+            $result[$key]['text'] = Html::encode($node['title']) . ' ' . $node['key'];
+            $result[$key]['icon'] = $icon;
+            $result[$key]['data'] = ['is_switch' => $node['switch']];
+            $result[$key]['state'] = [
+                'opened' => ($this->allOpen || $node['key'] == 1) ? true : false,
             ];
-
-
-            /* $result['id'] = 'node_' . $node->id;
-             $result['text'] = Html::encode($node->name) . ' ' . $node->id;
-             $result['icon'] = $icon;
-             $result['data'] = ['is_switch' => $node->switch];
-             $result['state'] = [
-                 'opened' => ($this->allOpen || $node->id == 1) ? true : false,
-             ];
-             if ($node->children) {
-                 $result['children'] = $this->createDataTree($node->children);
-             }*/
+            if (isset($node['children'])) {
+                $result[$key]['children'] = $this->createDataTree($node['children']);
+            }
         }
+
         return $result;
     }
 
