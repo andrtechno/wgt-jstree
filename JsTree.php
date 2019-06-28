@@ -154,7 +154,7 @@ class JsTree extends InputWidget
                 $icon = '';
             }
             $result[$key]['id'] = 'node_' . $node['key'];
-            $result[$key]['text'] = Html::encode($node['title']) . ' ' . $node['key'];
+            $result[$key]['text'] = Html::encode($node['title']);
             $result[$key]['icon'] = $icon;
             $result[$key]['data'] = ['is_switch' => $node['switch']];
             $result[$key]['state'] = [
