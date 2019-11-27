@@ -138,7 +138,7 @@ class JsTree extends InputWidget
         $inputId = (!$this->hasModel()) ? $this->options['id'] : Html::getInputId($this->model, $this->attribute);
 
 
-        $view->registerJs("$('#jsTree_{$this->options['id']}').jstree({$defaults})");
+        $view->registerJs("$('#jsTree_{$this->options['id']}').jstree({$defaults});");
 
     }
 
