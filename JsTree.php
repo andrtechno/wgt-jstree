@@ -10,14 +10,12 @@
 
 namespace panix\ext\jstree;
 
-use Yii;
+use yii\base\Widget;
 use yii\helpers\Html;
 use yii\helpers\Json;
-use yii\helpers\VarDumper;
-use yii\widgets\InputWidget;
 
 
-class JsTree extends InputWidget
+class JsTree extends Widget
 {
 
     /**
@@ -26,7 +24,7 @@ class JsTree extends InputWidget
      */
     public $data = [];
     public $allOpen = false;
-
+    public $options=[];
     /**
      * @var array Stores all defaults for the core
      */
@@ -94,14 +92,7 @@ class JsTree extends InputWidget
         parent::init();
         $this->registerAssets();
 
-        if (!$this->hasModel()) {
-            echo Html::hiddenInput($this->options['id'], null, ['id' => $this->options['id']]);
-        } else {
-            echo Html::activeTextInput($this->model, $this->attribute, ['class' => 'hidden', 'value' => $this->value]);
-            Html::addCssClass($this->options, "js_tree_{$this->attribute}");
-        }
-
-        $this->options['id'] = 'jsTree_' . $this->options['id'];
+        $this->options['id']=$this->id;
         echo Html::tag('div', '', $this->options);
     }
 
@@ -135,10 +126,9 @@ class JsTree extends InputWidget
         //$defaults = Json::encode(array_merge($config,['contextmenu'=>'customMenu()']));
         $defaults = Json::encode($config);
 
-        $inputId = (!$this->hasModel()) ? $this->options['id'] : Html::getInputId($this->model, $this->attribute);
+        // $inputId = (!$this->hasModel()) ? $this->options['id'] : Html::getInputId($this->model, $this->attribute);
 
-
-        $view->registerJs("$('#jsTree_{$this->options['id']}').jstree({$defaults});");
+        $view->registerJs("$('#{$this->id}').jstree({$defaults});");
 
     }
 
