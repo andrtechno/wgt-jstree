@@ -47,7 +47,6 @@ Usage without a model (you must specify the "name" attribute) :
 
 ```php
 <?= \panix\ext\jstree\JsTree::widget([
-    'name' => 'js_tree',
     'core' => [
         'data' => $data
         //...
