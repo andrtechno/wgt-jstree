@@ -1,4 +1,4 @@
-wgt-jstree 3.3.4
+Widget JsTree 3.3.8
 ===========
 Widget for Yii Framework 2.0 to use [JsTree](http://www.jstree.com)
 
@@ -43,7 +43,6 @@ Once the extension is installed, simply use it in your code by :
 ]); ?>
 ```
 
-Usage without a model (you must specify the "name" attribute) :
 
 ```php
 <?= \panix\ext\jstree\JsTree::widget([

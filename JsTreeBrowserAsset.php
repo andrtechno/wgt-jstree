@@ -12,10 +12,10 @@ namespace panix\ext\jstree;
 
 use yii\web\AssetBundle;
 
-class JsTreeAsset extends AssetBundle
+class JsTreeBrowserAsset extends AssetBundle
 {
     public $sourcePath = '@vendor/vakata/jstree/dist';
-    // public $sourcePath = '@vendor/panix/wgt-jstree/assets';
+
     //public $jsOptions = array(
     //    'position' => \yii\web\View::POS_READY
     //);
