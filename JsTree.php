@@ -17,7 +17,7 @@ use yii\helpers\Json;
 
 class JsTree extends Widget
 {
-
+    public $iconEye = false;
     /**
      * @var array Data configuration.
      * If left as false the HTML inside the jstree container element is used to populate the tree (that should be an unordered list with list items).
@@ -139,7 +139,7 @@ class JsTree extends Widget
         foreach ($data as $key => $node) {
 
 
-            if ($this->view->context instanceof \panix\mod\shop\controllers\admin\CategoryController) {
+            if ($this->iconEye) {
                 $icon = ($node['switch']) ? 'icon-eye' : 'icon-eye-close';
             } else {
                 $icon = '';
