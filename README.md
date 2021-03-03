@@ -1,4 +1,4 @@
-Widget JsTree 3.3.8
+Widget JsTree 3.3.x
 ===========
 Widget for Yii Framework 2.0 to use [JsTree](http://www.jstree.com)
 
